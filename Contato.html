@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="Entre em contato com a ONG Vida."
+>
+
+<title>Contato - ONG Vida 💙</title>
+
+<link
+    rel="stylesheet"
+    href="Css/style.css"
+>
+
+
+</head>
+
+<body>
+
+
+<!-- ==============================
+     CABEÇALHO
+     ============================== -->
+
+<header>
+
+    <div class="cabecalho">
+
+     
+        >
+
+        <div>
+
+            <h1>ONG Vida 💙</h1>
+
+            <p>
+                Transformando vidas por meio da solidariedade.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==============================
+         MENU
+         ============================== -->
+
+    <nav aria-label="Navegação principal">
+
+        <input
+            type="checkbox"
+            id="menu-toggle"
+        >
+
+        <label
+            for="menu-toggle"
+            class="menu-icon"
+        >
+            ☰
+        </label>
+
+
+        <div class="menu-links">
+
+            <a href="index.html">
+                Início
+            </a>
+
+
+            <div class="dropdown">
+
+                <a href="Projetos.html">
+                    Projetos ▾
+                </a>
+
+
+                <div class="dropdown-content">
+
+                    <a href="Projetos.html#apoio">
+                        Apoio comunitário
+                    </a>
+
+                    <a href="Projetos.html#voluntariado">
+                        Voluntariado
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a href="Contato.html">
+                Contato
+            </a>
+
+
+            <a href="Doacao.html">
+                Doação
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==============================
+     CONTEÚDO PRINCIPAL
+     ============================== -->
+
+<main>
+
+
+    <section>
+
+        <h2>
+            Entre em contato
+        </h2>
+
+
+        <p>
+            Entre em contato com a ONG Vida
+            para tirar dúvidas, enviar sugestões
+            ou saber mais sobre nossas ações.
+        </p>
+
+
+        <div class="alert">
+
+            <strong>
+                Fale conosco:
+            </strong>
+
+            Estamos à disposição para receber
+            sua mensagem.
+
+        </div>
+
+
+        <p>
+            <strong>E-mail:</strong>
+            contato@ongvida.org
+        </p>
+
+
+        <p>
+            <strong>Telefone:</strong>
+            (11) 99999-9999
+        </p>
+
+
+        <p>
+            <strong>Localização:</strong>
+            São Paulo - SP
+        </p>
+
+    </section>
+
+
+
+    <!-- ==============================
+         FORMULÁRIO
+         ============================== -->
+
+    <section>
+
+        <h2>
+            Envie uma mensagem
+        </h2>
+
+
+        <form id="form-contato">
+
+
+            <div>
+
+                <label for="nome">
+                    Nome
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Digite seu nome"
+                    required
+                >
+
+            </div>
+
+
+            <div>
+
+                <label for="email">
+                    E-mail
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Digite seu e-mail"
+                    required
+                >
+
+            </div>
+
+
+            <div>
+
+                <label for="mensagem">
+                    Mensagem
+                </label>
+
+                <textarea
+                    id="mensagem"
+                    name="mensagem"
+                    placeholder="Digite sua mensagem"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="btn-enviar"
+            >
+                Enviar mensagem
+            </button>
+
+
+        </form>
+
+    </section>
+
+</main>
+
+
+
+<!-- ==============================
+     NOTIFICAÇÃO
+     ============================== -->
+
+<div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+
+<!-- ==============================
+     RODAPÉ
+     ============================== -->
+
+<footer>
+
+    <p>
+        © 2026 ONG Vida 💙 - Projeto acadêmico
+    </p>
+
+</footer>
+
+
+
+<!-- ==============================
+     JAVASCRIPT
+     ============================== -->
+
+<script>
+
+    const formulario =
+        document.getElementById(
+            "form-contato"
+        );
+
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    const botaoEnviar =
+        document.getElementById(
+            "btn-enviar"
+        );
+
+
+    function mostrarToast(mensagem) {
+
+        toast.textContent = mensagem;
+
+        toast.classList.add("mostrar");
+
+
+        setTimeout(
+            function () {
+
+                toast.classList.remove(
+                    "mostrar"
+                );
+
+            },
+            3000
+        );
+
+    }
+
+
+    formulario.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const nome =
+                document.getElementById(
+                    "nome"
+                );
+
+
+            const email =
+                document.getElementById(
+                    "email"
+                );
+
+
+            const mensagem =
+                document.getElementById(
+                    "mensagem"
+                );
+
+
+            /* ==============================
+               VALIDAÇÃO DO NOME
+               ============================== */
+
+            if (
+                nome.value.trim() === ""
+            ) {
+
+                mostrarToast(
+                    "Digite seu nome."
+                );
+
+                nome.focus();
+
+                return;
+
+            }
+
+
+            /* ==============================
+               VALIDAÇÃO DO E-MAIL
+               ============================== */
+
+            if (
+                email.value.trim() === ""
+            ) {
+
+                mostrarToast(
+                    "Digite seu e-mail."
+                );
+
+                email.focus();
+
+                return;
+
+            }
+
+
+            if (
+                !email.validity.valid
+            ) {
+
+                mostrarToast(
+                    "Digite um e-mail válido."
+                );
+
+                email.focus();
+
+                return;
+
+            }
+
+
+            /* ==============================
+               VALIDAÇÃO DA MENSAGEM
+               ============================== */
+
+            if (
+                mensagem.value.trim() === ""
+            ) {
+
+                mostrarToast(
+                    "Digite uma mensagem."
+                );
+
+                mensagem.focus();
+
+                return;
+
+            }
+
+
+            /* ==============================
+               SALVAR NO LOCALSTORAGE
+               ============================== */
+
+            const dadosMensagem = {
+
+                nome:
+                    nome.value.trim(),
+
+                email:
+                    email.value.trim(),
+
+                mensagem:
+                    mensagem.value.trim(),
+
+                data:
+                    new Date().toLocaleString(
+                        "pt-BR"
+                    )
+
+            };
+
+
+            let mensagens = [];
+
+
+            try {
+
+                mensagens =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "ongVidaMensagens"
+                        )
+                    ) || [];
+
+            } catch (erro) {
+
+                mensagens = [];
+
+            }
+
+
+            mensagens.push(
+                dadosMensagem
+            );
+
+
+            localStorage.setItem(
+                "ongVidaMensagens",
+                JSON.stringify(
+                    mensagens
+                )
+            );
+
+
+            /* ==============================
+               MENSAGEM DE SUCESSO
+               ============================== */
+
+            mostrarToast(
+                "Mensagem enviada com sucesso! 💙"
+            );
+
+
+            /* ==============================
+               LIMPAR FORMULÁRIO
+               ============================== */
+
+            formulario.reset();
+
+        }
+    );
+
+</script>
+```
+
+</body>
+
+</html>

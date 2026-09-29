@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="ONG Vida - ações sociais, voluntariado e apoio à comunidade."
+>
+
+<title>ONG Vida 💙</title>
+
+<link
+    rel="stylesheet"
+    href="Css/style.css"
+>
+
+
+</head>
+
+<body>
+
+
+<!-- ==============================
+     CABEÇALHO
+     ============================== -->
+
+<header>
+
+    <div class="cabecalho">
+
+        <img
+            src="ong.png"
+            alt="Logo da ONG Vida"
+            class="logo"
+        >
+
+        <div>
+
+            <h1>ONG Vida</h1>
+
+            <p>
+                Transformando vidas por meio da solidariedade.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==============================
+         MENU
+         ============================== -->
+
+    <nav aria-label="Navegação principal">
+
+        <input
+            type="checkbox"
+            id="menu-toggle"
+        >
+
+        <label
+            for="menu-toggle"
+            class="menu-icon"
+        >
+            ☰
+        </label>
+
+
+        <div class="menu-links">
+
+            <a href="index.html">
+                Início
+            </a>
+
+
+            <div class="dropdown">
+
+                <a href="Projetos.html">
+                    Projetos ▾
+                </a>
+
+
+                <div class="dropdown-content">
+
+                    <a href="Projetos.html#apoio">
+                        Apoio comunitário
+                    </a>
+
+                    <a href="Projetos.html#voluntariado">
+                        Voluntariado
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a href="Contato.html">
+                Contato
+            </a>
+
+
+            <a href="Doacao.html">
+                Doação
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==============================
+     CONTEÚDO
+     ============================== -->
+
+<main>
+
+
+    <!-- ==============================
+         QUEM SOMOS
+         ============================== -->
+
+    <section class="secao-principal">
+
+
+        <div class="conteudo-principal">
+
+            <h2>
+                Quem somos
+            </h2>
+
+
+            <p>
+                A ONG Vida é uma organização voltada
+                para ações sociais, apoio comunitário
+                e incentivo ao voluntariado.
+            </p>
+
+
+            <p>
+                Nosso propósito é contribuir para uma
+                sociedade mais solidária, oferecendo
+                apoio e promovendo ações que possam
+                transformar vidas.
+            </p>
+
+
+            <div class="badges">
+
+                <span class="badge">
+                    Ação social
+                </span>
+
+                <span class="badge">
+                    Voluntariado
+                </span>
+
+                <span class="badge">
+                    Comunidade
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="imagem-principal">
+
+            <img
+                src="inicio.png"
+                alt="Ação social da ONG Vida"
+            >
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==============================
+         SEÇÃO DE INTERAÇÃO
+         ============================== -->
+
+    <section class="secao-info">
+
+
+        <h2>
+            Faça parte dessa transformação 💙
+        </h2>
+
+
+        <p>
+            Você pode contribuir participando das
+            nossas ações, tornando-se voluntário
+            ou realizando uma doação.
+        </p>
+
+
+        <div class="alert">
+
+            <strong>
+                Importante:
+            </strong>
+
+            Toda contribuição pode ajudar
+            a transformar uma vida.
+
+        </div>
+
+
+        <!-- BOTÕES -->
+
+        <div class="acoes">
+
+
+            <button
+                type="button"
+                id="btn-notificacao"
+            >
+                Mostrar notificação
+            </button>
+
+
+            <button
+                type="button"
+                id="btn-saiba-mais"
+            >
+                Saiba mais
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==============================
+     TOAST
+     ============================== -->
+
+<div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+
+<!-- ==============================
+     MODAL
+     ============================== -->
+
+<div
+    id="modal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="titulo-modal"
+>
+
+
+    <div class="modal-conteudo">
+
+
+        <button
+            type="button"
+            id="btn-fechar-modal"
+            class="fechar-modal"
+            aria-label="Fechar janela"
+        >
+            &times;
+        </button>
+
+
+        <h2 id="titulo-modal">
+            Sobre a ONG Vida 💙
+        </h2>
+
+
+        <p>
+            A ONG Vida busca contribuir para a
+            melhoria da qualidade de vida da
+            comunidade por meio de ações sociais,
+            apoio comunitário e voluntariado.
+        </p>
+
+
+        <p>
+            Nosso objetivo é promover solidariedade,
+            ajudar pessoas em situação de
+            vulnerabilidade e incentivar a
+            participação da comunidade.
+        </p>
+
+
+        <button
+            type="button"
+            id="btn-fechar-modal-2"
+        >
+            Fechar
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ==============================
+     RODAPÉ
+     ============================== -->
+
+<footer>
+
+    <p>
+        © 2026 ONG Vida 💙 - Projeto acadêmico
+    </p>
+
+</footer>
+
+
+
+<!-- ==============================
+     JAVASCRIPT
+     ============================== -->
+
+<script>
+
+    /* ==============================
+       BOTÃO DE NOTIFICAÇÃO
+       ============================== */
+
+    const botaoNotificacao =
+        document.getElementById(
+            "btn-notificacao"
+        );
+
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    botaoNotificacao.addEventListener(
+        "click",
+        function () {
+
+            toast.textContent =
+                "Ação realizada com sucesso!";
+
+            toast.classList.add(
+                "mostrar"
+            );
+
+
+            setTimeout(
+                function () {
+
+                    toast.classList.remove(
+                        "mostrar"
+                    );
+
+                },
+                3000
+            );
+
+        }
+    );
+
+
+
+    /* ==============================
+       BOTÃO SAIBA MAIS
+       ============================== */
+
+    const botaoSaibaMais =
+        document.getElementById(
+            "btn-saiba-mais"
+        );
+
+
+    const modal =
+        document.getElementById(
+            "modal"
+        );
+
+
+    botaoSaibaMais.addEventListener(
+        "click",
+        function () {
+
+            modal.style.display = "flex";
+
+        }
+    );
+
+
+
+    /* ==============================
+       FECHAR MODAL - X
+       ============================== */
+
+    const botaoFechar =
+        document.getElementById(
+            "btn-fechar-modal"
+        );
+
+
+    botaoFechar.addEventListener(
+        "click",
+        function () {
+
+            modal.style.display = "none";
+
+        }
+    );
+
+
+
+    /* ==============================
+       FECHAR MODAL - BOTÃO
+       ============================== */
+
+    const botaoFechar2 =
+        document.getElementById(
+            "btn-fechar-modal-2"
+        );
+
+
+    botaoFechar2.addEventListener(
+        "click",
+        function () {
+
+            modal.style.display = "none";
+
+        }
+    );
+
+
+
+    /* ==============================
+       FECHAR CLICANDO FORA
+       ============================== */
+
+    modal.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target === modal
+            ) {
+
+                modal.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+
+    /* ==============================
+       FECHAR COM ESC
+       ============================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                modal.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

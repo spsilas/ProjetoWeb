@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Doação - ONG Vida 💙</title>
+
+<link rel="stylesheet" href="Css/style.css">
+
+
+</head>
+
+<body>
+
+
+<header class="cabecalho">
+
+    <div class="logo-area">
+
+        
+
+        <div>
+
+            <h1>ONG Vida 💙</h1>
+
+            <p>
+                Transformando vidas por meio da solidariedade.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <nav
+        class="navegacao"
+        aria-label="Navegação principal"
+    >
+
+        <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+        >
+
+        <label
+            for="menu-toggle"
+            class="menu-icon"
+            aria-label="Abrir menu"
+        >
+            ☰
+        </label>
+
+
+        <div class="menu-links">
+
+            <a href="index.html">
+                Início
+            </a>
+
+
+            <div class="dropdown">
+
+                <a href="Projetos.html">
+                    Projetos ▾
+                </a>
+
+
+                <div class="dropdown-content">
+
+                    <a href="Projetos.html#apoio">
+                        Apoio comunitário
+                    </a>
+
+                    <a href="Projetos.html#voluntariado">
+                        Voluntariado
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a href="Contato.html">
+                Contato
+            </a>
+
+
+            <a href="Doacao.html">
+                Doação
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section>
+
+        <h2>Faça uma doação </h2>
+
+        <p>
+            Sua contribuição ajuda a ONG Vida a continuar
+            desenvolvendo ações sociais e apoiando a comunidade.
+        </p>
+
+
+        <form id="form-doacao">
+
+            <label for="nome-doador">
+                Nome:
+            </label>
+
+            <input
+                type="text"
+                id="nome-doador"
+                placeholder="Digite seu nome"
+                required
+            >
+
+
+            <label for="email-doador">
+                E-mail:
+            </label>
+
+            <input
+                type="email"
+                id="email-doador"
+                placeholder="Digite seu e-mail"
+                required
+            >
+
+
+            <label for="valor">
+                Valor da doação:
+            </label>
+
+            <select id="valor">
+
+                <option value="">
+                    Selecione um valor
+                </option>
+
+                <option value="10">
+                    R$ 10,00
+                </option>
+
+                <option value="25">
+                    R$ 25,00
+                </option>
+
+                <option value="50">
+                    R$ 50,00
+                </option>
+
+                <option value="100">
+                    R$ 100,00
+                </option>
+
+                <option value="200">
+                    R$ 200,00
+                </option>
+
+            </select>
+
+
+            <label for="valor-outro">
+                Ou informe outro valor:
+            </label>
+
+            <input
+                type="number"
+                id="valor-outro"
+                min="1"
+                step="0.01"
+                placeholder="Ex.: 75"
+            >
+
+
+            <label for="pagamento">
+                Forma de pagamento:
+            </label>
+
+            <select
+                id="pagamento"
+                required
+            >
+
+                <option value="">
+                    Selecione uma opção
+                </option>
+
+                <option value="Pix">
+                    Pix
+                </option>
+
+                <option value="Cartão">
+                    Cartão
+                </option>
+
+                <option value="Boleto">
+                    Boleto
+                </option>
+
+            </select>
+
+
+            <button
+                type="submit"
+                class="botao"
+            >
+                Confirmar doação
+            </button>
+
+        </form>
+
+
+        <div
+            class="alerta"
+            role="alert"
+        >
+
+            <strong>Importante:</strong>
+
+            Esta página faz parte de uma simulação acadêmica.
+            Nenhuma transação financeira real será realizada.
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+<footer>
+
+    <p>
+        © 2026 ONG Vida 💙 - Projeto acadêmico
+    </p>
+
+</footer>
+
+
+<script>
+
+    const formulario = document.getElementById("form-doacao");
+
+    const toast = document.getElementById("toast");
+
+
+    function mostrarToast(mensagem) {
+
+        toast.textContent = mensagem;
+
+        toast.classList.add("mostrar");
+
+
+        setTimeout(function () {
+
+            toast.classList.remove("mostrar");
+
+        }, 5000);
+
+    }
+
+
+    formulario.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+
+        const nome = document.getElementById("nome-doador");
+
+        const email = document.getElementById("email-doador");
+
+        const valor = document.getElementById("valor");
+
+        const valorOutro = document.getElementById("valor-outro");
+
+        const pagamento = document.getElementById("pagamento");
+
+
+        if (nome.value.trim() === "") {
+
+            mostrarToast("Digite seu nome.");
+
+            nome.focus();
+
+            return;
+
+        }
+
+
+        if (email.value.trim() === "") {
+
+            mostrarToast("Digite seu e-mail.");
+
+            email.focus();
+
+            return;
+
+        }
+
+
+        if (!email.validity.valid) {
+
+            mostrarToast("Digite um e-mail válido.");
+
+            email.focus();
+
+            return;
+
+        }
+
+
+        if (
+            valor.value === "" &&
+            valorOutro.value === ""
+        ) {
+
+            mostrarToast("Selecione ou informe um valor.");
+
+            valor.focus();
+
+            return;
+
+        }
+
+
+        if (
+            valorOutro.value !== "" &&
+            Number(valorOutro.value) <= 0
+        ) {
+
+            mostrarToast("Informe um valor válido.");
+
+            valorOutro.focus();
+
+            return;
+
+        }
+
+
+        if (pagamento.value === "") {
+
+            mostrarToast("Selecione a forma de pagamento.");
+
+            pagamento.focus();
+
+            return;
+
+        }
+
+
+        const valorDoacao =
+            valorOutro.value !== ""
+                ? Number(valorOutro.value)
+                : Number(valor.value);
+
+
+        const doacao = {
+
+            nome: nome.value.trim(),
+
+            email: email.value.trim(),
+
+            valor: valorDoacao,
+
+            pagamento: pagamento.value,
+
+            data: new Date().toLocaleString("pt-BR")
+
+        };
+
+
+        let doacoes = [];
+
+
+        try {
+
+            const dadosSalvos =
+                localStorage.getItem("ongVidaDoacoes");
+
+
+            if (dadosSalvos) {
+
+                doacoes = JSON.parse(dadosSalvos);
+
+            }
+
+        } catch (erro) {
+
+            doacoes = [];
+
+        }
+
+
+        doacoes.push(doacao);
+
+
+        localStorage.setItem(
+            "ongVidaDoacoes",
+            JSON.stringify(doacoes)
+        );
+
+
+        const valorFormatado =
+            valorDoacao
+                .toFixed(2)
+                .replace(".", ",");
+
+
+        mostrarToast(
+            "Doação de R$ " +
+            valorFormatado +
+            " registrada com sucesso! 💙 " +
+            "Agradecemos pela sua contribuição! " +
+            "Seu apoio é o combustível que mantém " +
+            "a ONG Vida ativa e nos ajuda a transformar vidas."
+        );
+
+
+        formulario.reset();
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
