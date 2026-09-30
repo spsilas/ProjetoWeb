@@ -888,12 +888,12 @@ border-color: var(--cor-erro);
 ================================================== */
 
 .doacao {
-max-width: 700px;
+max-width: 1000px;
 
 
 margin: 0 auto;
 
-padding: var(--espaco-24);
+padding: var(--espaco-32) var(--espaco-16);
 
 background-color: var(--cor-fundo-secundario);
 
